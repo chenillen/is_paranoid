@@ -135,4 +135,4 @@ module MultipleDefaultScopes
 end
 
 ActiveSupport.on_load(:active_record) { include IsParanoid }
-ActiveRecord::Base.extend MultipleDefaultScopes
+ActiveSupport.on_load(:active_record) { include MultipleDefaultScopes }
