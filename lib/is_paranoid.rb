@@ -18,11 +18,7 @@ module IsParanoid
         # append the conditions deleted_at => nil.  Exceptions require
         # using with_destroyed_scope (see self.delete_all,
         # self.count_with_destroyed, and self.find_with_destroyed )
-        if reflect_on_association(:avatar).macro == :has_one          ## Hack only for my app, User need avatar!!
-          default_scope where(:deleted_at => nil).includes(:avatar)   ## comments these if condition
-        else                                                          ## That's the same
-          default_scope where(:deleted_at => nil)                     ##  :-P
-        end                                                           ###########################################
+        default_scope where(:deleted_at => nil)
 
 
 
