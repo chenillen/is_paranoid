@@ -15,7 +15,7 @@ module MultipleDefaultScopes
         
         class << self
           def default_scoping_with_deep_merge
-            [] do |default_scope|
+            returning [] do |default_scope|
               merged_default_scopes = {}
 
               default_scoping_without_deep_merge.each do |scope|
@@ -24,7 +24,6 @@ module MultipleDefaultScopes
 
               default_scoping << merged_default_scopes
             end
-            return default_scoping
           end
 
           alias_method_chain :default_scoping, :deep_merge
