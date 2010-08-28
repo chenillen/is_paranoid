@@ -31,4 +31,4 @@ module MultipleDefaultScopes
   end
 end
 
-ActiveRecord::Base.extend MultipleDefaultScopes
+ActiveRecord::Base.send(:include, MultipleDefaultScopes)
