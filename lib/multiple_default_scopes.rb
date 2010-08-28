@@ -1,6 +1,8 @@
+require 'active_support/concern'
 require 'active_record'
 
 module MultipleDefaultScopes
+  extend ActiveSupport::Concern
   
   module ClassMethods
     ##  class ModelName < ActiveRecord::Base
@@ -31,4 +33,5 @@ module MultipleDefaultScopes
   end
 end
 
-ActiveRecord::Base.send(:include, MultipleDefaultScopes)
+
+ActiveSupport.on_load(:active_record) { include MultipleDefaultScopes }
